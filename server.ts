@@ -1,6 +1,5 @@
 import pool from "./src/config/connect_SQL.ts";
 
-
 const conexion = pool;
 
 conexion.connect().then( (client) => {
@@ -10,12 +9,17 @@ conexion.connect().then( (client) => {
    consulta.then( (resultado) =>{
 
     console.log("Resultado de la operacion: ", resultado.rows[0]);
+    console.log("🥳¡Conexion exitosa!");
 
-    client.release();
-    
    }).catch((e) =>{
 
     console.log("Hubo un error: ", e);
+   }) .finally(() =>{
+
+    client.release();
    })
 
+}).catch( (e) => {
+
+    console.log("Hubo un error al crear la conexion: ", e);
 })
