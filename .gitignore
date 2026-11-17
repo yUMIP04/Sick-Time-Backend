@@ -1,4 +1,2 @@
 node_modules/
 .env
-BD_POSTGRE=sick_time_db
-USER_Postgre =
