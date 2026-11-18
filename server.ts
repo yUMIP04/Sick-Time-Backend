@@ -1,4 +1,5 @@
 import pool from "./src/config/connect_SQL.ts";
+import { servidor } from "./src/routes/auth.ts";
 
 const conexion = pool;
 
@@ -23,3 +24,5 @@ conexion.connect().then( (client) => {
 
     console.log("Hubo un error al crear la conexion: ", e);
 })
+
+console.log(servidor);
