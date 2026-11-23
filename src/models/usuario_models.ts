@@ -93,6 +93,4 @@ async function Buscar_Usuario(correo:string) {
     }
 }
 
-Buscar_Usuario("Yumi@gmail.com");
-
 export {Buscar_Usuario};
