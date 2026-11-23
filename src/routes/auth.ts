@@ -12,6 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 
+/*🌟 API Registro */
+
 app.post("/api/registro", async (req, res) =>{
 
     const {nombre, apellidos, correo, edad, contrasena, ciudad, pais, enfermedad, 
@@ -42,6 +44,14 @@ app.post("/api/registro", async (req, res) =>{
         }
 
 })
+
+/*🌟 API Inicio Sesion */
+app.post("/api/login", (res, req) =>{
+
+    
+})
+
+/*🌟 Levantamiento del Servidor */
 
 export const servidor = app.listen(process.env.Puerto_Express || 3000, () =>{
 

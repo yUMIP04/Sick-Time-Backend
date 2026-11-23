@@ -42,7 +42,7 @@ tiempo_enfermedad: string, medicamentos:string){
 
             console.log("🥳Tu interfaz se creo de manera correcta");
             console.log("Mostrando ...");
-            console.log(usuario);
+            /*console.log(usuario);*/
 
             if(usuario !== null){
 
@@ -53,7 +53,7 @@ tiempo_enfermedad: string, medicamentos:string){
 
                     console.log("🥳¡Se creo el usuario de manera correcta!");
 
-                    console.log(resultado.rows[0]);
+                    /*console.log(resultado.rows[0]);*/
 
             } else {
 
@@ -72,6 +72,27 @@ export {Crear_Usuario}
 
 /*INICIO SESION / BUSCAR USUARIO */
 
-async function Buscar_Usuario(nombre:string, contraseña:string) {
+async function Buscar_Usuario(correo:string) {
     
+    try{
+
+        if(correo){
+
+            const resultado = await pool.query('SELECT id_usuario, nombre, apellidos, edad, correo, contrasena, ciudad, pais, enfermedad, tiempo_enfermedad, medicamentos FROM usuarios WHERE correo = $1 ',[correo]);
+
+             console.log(resultado);
+
+            return resultado.rows[0];
+           
+        }
+
+    }catch(e){
+
+        console.error(`Hubo un error en la funcion para buscar al usuario: ${e}`);
+
+    }
 }
+
+Buscar_Usuario("Yumi@gmail.com");
+
+export {Buscar_Usuario};
