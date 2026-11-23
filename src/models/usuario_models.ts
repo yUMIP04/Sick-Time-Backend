@@ -69,3 +69,9 @@ tiempo_enfermedad: string, medicamentos:string){
 }
 
 export {Crear_Usuario}
+
+/*INICIO SESION / BUSCAR USUARIO */
+
+async function Buscar_Usuario(nombre:string, contraseña:string) {
+    
+}
