@@ -6,6 +6,7 @@ import { Crear_Usuario } from "../models/usuario_models.ts";
 import { Buscar_Usuario } from "../models/usuario_models.ts";
 import bcrypt from 'bcrypt';
 import cors from 'cors';
+import { json } from "node:stream/consumers";
 
 dotenv.config();
 const app = express();
@@ -83,6 +84,8 @@ app.post("/api/login", async ( req, res) =>{
                 }
 
                 const TOKEN = jwt.sign(payload,TOKEN_CLAVE as string);
+
+                localStorage.setItem("datos_usuarios", JSON.stringify(user));
 
                 return res.status(200).json({
                     MensajeExito : "¡Inicio de Sesion Exitoso!",

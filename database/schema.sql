@@ -32,3 +32,13 @@ CREATE TABLE recordatorios_alarmas(
     vibracion BOOLEAN DEFAULT TRUE,
     cancion VARCHAR(100)
 );
+
+CREATE TABLE codigos_recuperacion (
+
+id_recuperacion SERIAL PRIMARY KEY,
+id_usuario INT NOT NULL REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+codigo VARCHAR(255) NOT NULL UNIQUE,
+expira_en TIMESTAMP NOT NULL,
+usado BOOLEAN DEFAULT FALSE,
+creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
